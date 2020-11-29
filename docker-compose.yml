@@ -1,0 +1,15 @@
+version: '3.5'
+networks:
+  nginx-proxy:
+    external: true
+services:
+  go-qrserve:
+    container_name: go-qrserve
+    restart: always
+    image: gotest
+    networks:
+      - nginx-proxy
+    environment:
+      - VIRTUAL_HOST=qr.ludovic-frank.fr
+#      - LETSENCRYPT_HOST=developpeur-freelance.io
+#      - LETSENCRYPT_EMAIL=ludo@hey.com
